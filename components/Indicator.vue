@@ -1,5 +1,5 @@
 <template>
-  <div class="u-tile-size  indicator"></div>
+  <div class="u-tile-size indicator"></div>
 </template>
 
 <script lang="ts" setup>

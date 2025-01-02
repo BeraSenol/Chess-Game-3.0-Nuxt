@@ -3,7 +3,7 @@
 		<div v-for="ranks, rank in chess.board()" class="flex">
 			<div v-for="tile, file in ranks" :key="tile?.square" :id="getId(file, rank)" class="u-tile-size relative"
 				:class="(file + rank) % 2 === 0 ? 'u-tile-light' : 'u-tile-dark'">
-				<!-- <p class="text-black absolute">{{ getId(file, rank) }}</p> -->
+				<p class="text-black absolute">{{ getId(file, rank) }}</p>
 				<NuxtImg v-if="tile" class="u-tile-size" :src="`/pieces/${tile.type}${tile.color}.svg`"
 					:alt="`${tile.type}${tile.color}.svg`" :id="`${getId(file, rank)}-piece`"
 					@click="hightlightMoves(<Square>getId(file, rank))" />
@@ -42,8 +42,13 @@ const getId = (fileIndex: number, rankIndex: number): string => {
 }
 
 const hightlightMoves = (tile: Square) => {
-	for (let i = 0; i < chess.moves({ square: tile }).length; i++) {
-		document.getElementById(`${chess.moves({ square: tile, verbose: true })[i].to}-indicator`)?.classList.add('highlighted')
+	const highlightedSquares = document.getElementsByClassName('indicator');
+	for (let i = 0; i < highlightedSquares.length; i++) {
+		highlightedSquares[i].classList.remove('highlighted');
 	}
+	for (let i = 0; i < chess.moves({ square: tile }).length; i++) {
+		document.getElementById(`${chess.moves({ square: tile, verbose: true })[i].to}-indicator`)?.classList.add('highlighted');
+	}
+	console.log(chess.moves({ square: 'b7', verbose: true }));
 }
 </script>
