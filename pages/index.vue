@@ -1,6 +1,6 @@
 <template>
     <UContainer class="flex justify-center">
-        <ChessBoard/>
+        <Chessboard/>
     </UContainer>
 </template>
 

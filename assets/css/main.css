@@ -1,0 +1,19 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer components {
+  .u-tile-size {
+    @apply w-28 h-28 transition-all;
+  }
+
+  .u-tile-light {
+    @apply bg-white hover:bg-primary-200;
+  }
+
+  .u-tile-dark {
+    @apply bg-primary-900 hover:bg-primary-700;
+  }
+}
