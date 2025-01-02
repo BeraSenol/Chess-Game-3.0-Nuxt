@@ -1,5 +1,5 @@
 <template>
-  <div class="u-tile-size absolute indicator"></div>
+  <div class="u-tile-size  indicator"></div>
 </template>
 
 <script lang="ts" setup>
@@ -7,17 +7,17 @@
 </script>
 
 <style scoped>
-.indicator {
+div {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.indicator.highlighted::before {
+div .highlighted::after {
+  position: absolute;
   content: '';
-  width: 30px;
-  height: 30px;
-  background-color: rgba(0, 0, 0, 0.20);
+
+  background-color: rgba(0, 0, 0, 0.25);
   border-radius: 50%;
   pointer-events: none;
 }

@@ -1,16 +1,16 @@
 <template>
-	<UContainer>
+	<div class="max-w-screen">
 		<div v-for="ranks, rank in chess.board()" class="flex">
 			<div v-for="tile, file in ranks" :key="tile?.square" :id="getId(file, rank)" class="u-tile-size relative"
 				:class="(file + rank) % 2 === 0 ? 'u-tile-light' : 'u-tile-dark'">
-				<p class="text-black absolute">{{ getId(file, rank) }}</p>
+				<!-- <p class="text-black absolute">{{ getId(file, rank) }}</p> -->
 				<NuxtImg v-if="tile" class="u-tile-size" :src="`/pieces/${tile.type}${tile.color}.svg`"
 					:alt="`${tile.type}${tile.color}.svg`" :id="`${getId(file, rank)}-piece`"
 					@click="hightlightMoves(<Square>getId(file, rank))" />
 				<Indicator :id="`${getId(file, rank)}-indicator`" />
 			</div>
 		</div>
-	</UContainer>
+	</div>
 </template>
 
 <script lang="ts" setup>
