@@ -1,13 +1,14 @@
 <template>
-	<div class="p-4">
+	<div>
 		<div v-for="ranks, rank in chess.board()" class="flex">
 			<div v-for="tile, file in ranks" :key="tile?.square" :id="getId(file, rank)" class="u-tile-size relative"
 				:class="(file + rank) % 2 === 0 ? 'u-tile-light' : 'u-tile-dark'">
-				<TileLabel :file="file" :rank="rank" :label="getId(file, rank)" :color="(file + rank) % 2 === 0 ? 'text-primary-950' : 'text-white'"/>
+				<ChessTileLabel :file="file" :rank="rank" :label="getId(file, rank)"
+					:color="(file + rank) % 2 === 0 ? 'text-primary-950' : 'text-white'" />
 				<NuxtImg v-if="tile" class="u-tile-size" :src="`/pieces/${tile.type}${tile.color}.svg`"
 					:alt="`${tile.type}${tile.color}.svg`" :id="`${getId(file, rank)}-piece`"
 					@click="hightlightMoves(<Square>getId(file, rank))" />
-				<Indicator :id="`${getId(file, rank)}-indicator`" />
+				<ChessIndicator :id="`${getId(file, rank)}-indicator`" />
 			</div>
 		</div>
 	</div>

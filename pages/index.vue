@@ -1,10 +1,6 @@
 <template>
-    <UContainer class="flex justify-center">
-        <Chessboard/>
-    </UContainer>
+    <div class="flex flex-col justify-center items-center">
+        <Header />
+        <ChessBoard />
+    </div>
 </template>
-
-<script lang="ts" setup>
-</script>
-
-<style></style>
