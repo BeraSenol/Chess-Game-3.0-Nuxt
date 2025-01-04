@@ -2,10 +2,6 @@
   <div class="u-tile-size absolute after:content-[''] flex justify-center items-center indicator"></div>
 </template>
 
-<script lang="ts" setup>
-
-</script>
-
 <style scoped>
 div .highlighted::after {
   background-color: rgba(0, 0, 0, 0.25);
